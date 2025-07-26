@@ -3,6 +3,26 @@ import { Routes } from '@angular/router';
 // import { RutaUnoComponent } from './componentes/ruta-uno/ruta-uno.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: ''
+  },
+  {
+    path: '',
+    loadComponent: () => import('./ruta-uno.component').then(m => m.RutaUnoComponent),
+    children: [
+      {
+        path: 'uno',
+        loadComponent: () => import('./uno/uno.component').then(m => m.UnoComponent),
+      },
+      {
+        path: 'dos',
+        loadComponent: () => import('./dos/dos.component').then(m => m.DosComponent),
+      },
+
+    ]
+  }
   // {
   //   path: '',
   //   pathMatch: 'full',
@@ -14,15 +34,10 @@ export const routes: Routes = [
   //   data: { buttonColor: 'btn btn-danger', titulo: 'RUTA UNO' },
   //   title: 'RUTA-UNO-asasas',
   //   // component: RutaUnoComponent
-  //   // loadComponent: () => import('./componentes/ruta-uno/ruta-uno.component').then(m => m.RutaUnoComponent),
-  //   loadChildren: () => import('./componentes/ruta-uno/ruta-uno.routes').then(r => r.routes)
+  //   loadComponent: () => import('./componentes/ruta-uno/ruta-uno.component').then(m => m.RutaUnoComponent),
   // },
-  {
-    path: 'auth',
-    loadChildren: () => import('./componentes/auth/auth.routes').then(r => r.routes)
-  },
   // {
-  //   path: 'usuario/:id',
+  //   path: 'ruta-uno-detalle/:variable',
   //   loadComponent: () => import('./componentes/ruta-uno/ruta-uno-detalle/ruta-uno-detalle.component').then(m => m.RutaUnoDetalleComponent),
   // }
 ];

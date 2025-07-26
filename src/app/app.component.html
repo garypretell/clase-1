@@ -1,5 +1,157 @@
+<!--
+{{ title }} <br>
+{{ persona | json }} <br>
+Nombre : {{ persona.nombre }} <br>
+Apellido : {{ persona.apellido }} <br>
+Edad : {{ persona.edad }} <br>
+Direccion - Calle : {{ persona.direccion.calle }} <br>
+Direccion - Numero : {{ persona.direccion.numero }} <br>
 
-<app-boton />
+<div class="mb-2">
+    <h3>Ejemplo 2 - Evaluar expresiones</h3>
+    <p>La suma de 2 y 2 es {{ 2 + 2 }}</p>
+</div>
+
+<div class="mb-2">
+    <h3>Ejemplo 3 - Evaluar una función</h3>
+    <p>Hola mundo repetido es: {{duplicarTexto('hola mundo')}}</p>
+</div>
+
+<div class="mb-2">
+    <h3>Ejemplo 4 - Usando el operador de navegación segura (?.)</h3>
+    <p>La propiedad edad no existe: {{persona?.nacionalidad}}</p>
+</div>
+
+<div class="mb-2">
+    <h3>Ejemplo 5 - Podemos hacer varias cosas al mismo tiempo:</h3>
+    <p>{{ 'Podemos concatenar strings: ' + duplicarTexto(persona.nombre)}}</p>
+</div>
+
+
+<div class="mb-2">
+    <h3>Ejemplo 6 - Podemos usar variables de referencia de plantilla</h3>
+    <p #miparrafo class="mb-2">este es un parrafo de prueba</p>
+    <input class="input is-primary" title="parrafo" value="{{miparrafo.innerHTML}}">
+</div> -->
+
+<!-- Two way data binding <br>
+
+<input type="text" class="input is-primary" [(ngModel)]="nombre" (ngModelChange)="imprimirValor($event); mostrarAlerta($event)" placeholder="Escribe tu nombre"> <br>
+
+Mi nombre es: {{nombre}} <br> -->
+
+
+<!-- <input type="text" class="input is-primary" [(ngModel)]="valor"  placeholder="Escribe Valor"> <br>
+
+<div *ngIf="valor > 5; else valorMenorIgual5">
+  Uso de la directiva ngIf
+</div>
+<ng-template #valorMenorIgual5>
+  El valor es menor o igual a 5
+</ng-template>
+
+<br>
+
+@if (valor > 5) {
+  Uso de la directiva ngIf
+}@else {
+  El valor es menor o igual a 5
+} -->
+
+<!-- <div *ngFor="let persona of personas; let idx = index; ">
+    <p>{{ idx + 1 }} {{persona.nombre}} - {{persona.edad}}</p>
+</div>
+<div *ngIf="personas.length === 0">
+    There are no items
+</div>
+
+<hr>
+
+@for (persona of personas2; track $index; let idx = $index) {
+  <p>{{ idx + 1 }} {{persona.nombre}} - {{persona.edad}}</p>
+}@empty {
+  There are no items
+} -->
+
+<!-- <div>
+  <h3>Ejemplo 1 - ngSwitch</h3>
+
+  Seleccione una opción
+  <div class="select">
+    <select title="opcion" (change)="opcion = $any($event.target).value">
+      <option>--Seleccione una opción--</option>
+      <option value="ASP.NET">ASP.NET</option>
+      <option value="Angular">Angular</option>
+    </select>
+  </div>
+
+  <div [ngSwitch]="opcion">
+    <div *ngSwitchDefault>Debe escoger una opcion</div>
+    <div *ngSwitchCase="'ASP.NET'">
+      Usted ha escogido ASP.NET, un framework de desarrollo de aplicaciones web
+      creado por Microsoft
+    </div>
+    <div *ngSwitchCase="'Angular'">
+      Usted ha escogido Angular, una plataforma de desarrollo de aplicaciones
+      modernas
+    </div>
+  </div>
+</div>
+
+
+<hr> -->
+
+<!-- @switch (opcion) {
+@case ('ASP.NET') {
+Usted ha escogido ASP.NET, un framework de desarrollo de aplicaciones web
+      creado por Microsoft
+}
+@case ('Angular') {
+Usted ha escogido Angular, una plataforma de desarrollo de aplicaciones
+      modernas
+}
+@default {
+Debe escoger una opcion
+}
+} -->
+
+<!-- <app-boton [titulo2]="'crear Alerta'" (action2)="crearAlerta($event)"></app-boton> <br>
+<app-boton [titulo2]="'imprimir en consola'" (action2)="imprimirConsola($event)"></app-boton>
+
+<div class="container text-center">
+  <div class="row">
+    @for(item of array; track $index; let idx = $index) {
+    <div class="col">
+      <app-card [title]="'Titulo ' + (idx + 1)" [content]="'Contenido de la tarjeta' + (idx + 1)" [buttonTitle]="'Botón' + (idx + 1)"></app-card>
+    </div>
+    }
+  </div>
+</div> -->
+
+<!-- <app-card  [content]="'Contenido de la tarjeta 1'" [buttonTitle]="'Botón 1'" (buttonClicked)="clickBoton($event)">
+  <h1>{{titulo1}}</h1>
+  <p>Contenido adicional de la tarjeta</p> -->
+  <!-- Aquí puedes agregar más contenido -->
+  <!-- Puedes usar ng-content para insertar contenido adicional -->
+  <!-- <ng-content></ng-content> -->
+  <!-- Puedes usar el componente boton dentro de card -->
+  <!-- <app-boton [titulo2]="buttonTitle"></app-boton> -->
+<!-- abcd
+</app-card>
+<br>
+Valor del Boton Emitido = {{valorBoton | json }} -->
+<!-- <app-card [title]="'Titulo 2'" [content]="'Contenido de la tarjeta 2'" [buttonTitle]="'Botón 1'">
+EFGH
+</app-card> -->
+<!-- <app-card [title]="'Titulo 3'" [content]="'Contenido de la tarjeta 3'" [buttonTitle]="'Botón 1'"></app-card>
+<app-card [title]="'Titulo 4'" [content]="'Contenido de la tarjeta 4'" [buttonTitle]="'Botón 1'"></app-card> -->
+
+
+<!-- <app-boton />
 <app-boton [titulo]="'valor 1'"  />
 <app-boton [titulo]="'valor 2'" />
-<app-boton [titulo]="'valor 3'" />
+<app-boton [titulo]="'valor 3'" /> -->
+
+<!-- este el el inicio -->
+
+<router-outlet></router-outlet>
