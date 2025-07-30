@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { RUTAS } from './constants/rutas';
 // import RutaUnoComponent from './componentes/ruta-uno/ruta-uno.component';
 // import { RutaUnoComponent } from './componentes/ruta-uno/ruta-uno.component';
 
@@ -18,7 +19,7 @@ export const routes: Routes = [
   //   loadChildren: () => import('./componentes/ruta-uno/ruta-uno.routes').then(r => r.routes)
   // },
   {
-    path: 'auth',
+    path: RUTAS.auth,
     loadChildren: () => import('./componentes/auth/auth.routes').then(r => r.routes)
   },
   // {

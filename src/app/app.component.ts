@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './componentes/card/card.component';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { RUTAS } from './constants/rutas';
 
 
 @Component({
   selector: 'nodox-root',
-  imports: [FormsModule, CommonModule, RouterOutlet],
+  imports: [FormsModule, CommonModule, RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 
@@ -74,5 +75,23 @@ export class AppComponent {
 
   clickBoton(valor: any): void {
     this.valorBoton = valor
+  }
+
+  router = inject(Router);
+  rutas = RUTAS;
+  rutaSignIn = `${this.rutas.auth}/${this.rutas.signIn}`
+  rutaSignUp = `${this.rutas.auth}/${this.rutas.signUp}`
+  rutaResetPassword= `${this.rutas.auth}/${this.rutas.resetPassword}`
+
+  redirectToSignIn() {
+    this.router.navigateByUrl(this.rutaSignIn)
+  }
+  
+  redirectToSignUp() {
+    this.router.navigateByUrl(this.rutaSignUp)
+  }
+  
+  redirectToResetPass() {
+    this.router.navigateByUrl(this.rutaResetPassword)
   }
 }

@@ -153,5 +153,13 @@ EFGH
 <app-boton [titulo]="'valor 3'" /> -->
 
 <!-- este el el inicio -->
+<a  [routerLink]="[rutaSignIn]" routerLinkActive="router-link-active" >SIGN IN</a><br>
+<a  [routerLink]="[rutaSignUp]" routerLinkActive="router-link-active" >SIGN UP</a><br>
+<a  [routerLink]="[rutaResetPassword]" routerLinkActive="router-link-active" >RESET PASSWORD</a><br>
+
+
+<button (click)="redirectToSignIn()">SIGN IN</button><br>
+<button (click)="redirectToSignUp()">SIGN UP</button><br>
+<button (click)="redirectToResetPass()">RESET PASS</button><br>
 
 <router-outlet></router-outlet>
