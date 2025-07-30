@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CardComponent } from './componentes/card/card.component';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { RUTAS } from './constants/rutas';
+import { RickAndMorthyService } from './core/services/rick-and-morthy.service';
 
 
 @Component({
@@ -78,6 +79,9 @@ export class AppComponent {
   }
 
   router = inject(Router);
+  servicio = inject(RickAndMorthyService);
+  resultado: any;
+  resultadoPorId: any;
   rutas = RUTAS;
   rutaSignIn = `${this.rutas.auth}/${this.rutas.signIn}`
   rutaSignUp = `${this.rutas.auth}/${this.rutas.signUp}`
@@ -93,5 +97,14 @@ export class AppComponent {
   
   redirectToResetPass() {
     this.router.navigateByUrl(this.rutaResetPassword)
+  }
+
+  ngOnInit() {
+    this.servicio.getCharacter().subscribe((data: any) => {
+      this.resultado = data.results
+    })
+    this.servicio.getCharacterById(1).subscribe((data: any) => {
+      this.resultadoPorId = data
+    })
   }
 }
